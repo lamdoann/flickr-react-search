@@ -5,7 +5,10 @@ import ItemComponent from './Item';
 export default function ItemList({ items }) {
   return (
     <Item.Group divided>
-      {items.length > 0 && items.map((item, key) => (<ItemComponent key={key} {...item} />))}
+      {items.length > 0
+        && items
+            .filter((item) => item)
+            .map((item, key) => (<ItemComponent key={key} {...item} />))}
     </Item.Group>
   )
 }

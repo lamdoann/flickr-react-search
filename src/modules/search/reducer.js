@@ -8,7 +8,7 @@ const initialState = {
 };
 
 export default function reducer(state = initialState, action) {
-  const { type, items = [] } = action;
+  const { type, items } = action;
   switch (type) {
     case SEARCH_SUCCESS:
       return { items: items.map((_, index) => index) };

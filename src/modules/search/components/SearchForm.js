@@ -20,7 +20,6 @@ class SearchForm extends React.Component {
 
   render() {
     const { items, isRequesting } = this.props;
-
     return (
       <div>
         <Input
