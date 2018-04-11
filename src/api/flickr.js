@@ -4,6 +4,6 @@ const baseUrl = 'https://api.flickr.com/services/feeds/photos_public.gne?format=
 
 export async function fetchPhotos(input) {
   const url = `${baseUrl}&tags=${input}`;
-  const { data } = await axios.get(url);
-  return data.items;
+  const { data: { items = [] } } = await axios.get(url);
+  return items;
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { Input } from 'semantic-ui-react';
+import { Input, Message } from 'semantic-ui-react';
 import { getAllItems } from '../selectors';
 import { onSearch } from '../actions';
 import { ItemList } from '../../../components';
@@ -9,17 +9,15 @@ import { ItemList } from '../../../components';
 class SearchForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { value: '' };
     this.handleSearchChange = this.handleSearchChange.bind(this);
   }
 
   handleSearchChange(e, { value }) {
-    // this.setState({ value });
     this.props.onChange(value);
   }
 
   render() {
-    const { items, isRequesting } = this.props;
+    const { items, isRequesting, isError, message } = this.props;
     return (
       <div>
         <Input
@@ -30,6 +28,7 @@ class SearchForm extends React.Component {
           loading={isRequesting}
           onChange={this.handleSearchChange}
         />
+        {isError && <Message error>{message}</Message>}
         <ItemList items={items} />
       </div>
     );
