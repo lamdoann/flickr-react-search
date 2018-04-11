@@ -25,6 +25,7 @@ class SearchForm extends React.Component {
           size='large'
           icon='search'
           iconPosition='left'
+          placeholder='search photos...'
           loading={isRequesting}
           onChange={this.handleSearchChange}
         />
